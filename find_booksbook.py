@@ -9,9 +9,10 @@ HITS_PER_PAGE = 30
 REQ_URL = 'https://app.rakuten.co.jp/'\
 'services/api/BooksBook/Search/20170404'
 WANT_ITEMS = [
-    'booksGenreId',''
+    #'booksGenreId',''
     'title','author',
-    'itemUrl','smallImageUrl'   
+    #'itemUrl','smallImageUrl'  
+    'itemCaption', 
 ]
 
 sta_time = datetime.datetime.today()
@@ -19,13 +20,12 @@ this_date = format(sta_time,'%Y%m%d')
 path_output_dir = f'./output/{this_date}'
 req_params = {
     'applicationId':CLIENT_ME['APPLICATION_ID'],
-    'booksGenreId':'',
-    'format':'json',
     'formatVersion':'2',
+    'format':'json',
+    'booksGenreId':'001',   
     'title':'',
-    #'keyword':'',
     #'hits':HITS_PER_PAGE,
-    #'sort':'+ireviewCount',
+    'sort':'reviewCount',
 }
 #'postageFlag':1 #送料フラグ 0->全て,1->送料込み
 
